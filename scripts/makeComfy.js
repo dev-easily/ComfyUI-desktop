@@ -21,7 +21,22 @@ execAndLog(
 );
 execAndLog(`yarn run make:frontend`);
 execAndLog(`yarn run download:uv all`);
-execAndLog(`yarn run patch:core:frontend`);
+//execAndLog(`yarn run patch:core:frontend`);
+import fs from 'node:fs';
+
+const reqPath = 'assets/ComfyUI/requirements.txt';
+if (fs.existsSync(reqPath)) {
+  const lines = fs.readFileSync(reqPath, 'utf8').split('\n');
+  const filtered = lines.filter(
+    (line) => !line.includes('comfyui-frontend-package')
+  );
+  fs.writeFileSync(reqPath, filtered.join('\n'), 'utf8');
+  console.log('=======================\nRemoved comfyui-frontend-package from requirements.txt');
+  const newLines = filtered.slice(0, 5);
+  console.log('First 5 lines of new requirements.txt:');
+  newLines.forEach((l, i) => console.log(`${i + 1}: ${l}`));
+}
+
 /**
  * Run a command and log the output.
  * @param {string} command The command to run.
