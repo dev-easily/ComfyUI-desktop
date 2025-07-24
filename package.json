@@ -18,7 +18,10 @@
       "version": "",
       "optionalBranch": "master"
     },
-    "managerCommit": "402e2c384f338d0ed0a7fb19caa93f29a0dc35fd",
+    "comfyUIManager": {
+      "optionalBranch": "main",
+      "commit": ""
+    },
     "uvVersion": "0.5.31"
   },
   "scripts": {

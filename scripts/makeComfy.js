@@ -4,7 +4,7 @@ import pkg from './getPackage.js';
 import fs from 'node:fs';
 
 const comfyRepo = 'https://github.com/dev-easily/ComfyUI';
-const managerRepo = 'https://github.com/ltdrdata/ComfyUI-Manager';
+const managerRepo = 'https://github.com/dev-easily/ComfyUI-Manager';
 /** Suppress warning about detached head */
 const noWarning = '-c advice.detachedHead=false';
 
@@ -24,10 +24,13 @@ if (pkg.config.comfyUI.optionalBranch) {
   // Checkout tag as branch.
   execAndLog(`git ${noWarning} clone ${comfyRepo} --depth 1 --branch v${pkg.config.comfyUI.version} assets/ComfyUI`);
 }
-execAndLog(`git clone ${managerRepo} assets/ComfyUI/custom_nodes/ComfyUI-Manager`);
-execAndLog(
-  `cd assets/ComfyUI/custom_nodes/ComfyUI-Manager && git ${noWarning} checkout ${pkg.config.managerCommit} && cd ../../..`
-);
+
+if (pkg.config.comfyUIManager.optionalBranch) {
+  execAndLog(`git clone ${managerRepo} --depth 1 --branch ${pkg.config.comfyUIManager.optionalBranch} assets/ComfyUI/custom_nodes/ComfyUI-Manager`);
+} else if (pkg.config.comfyUIManager.commit) {
+  execAndLog(`git clone ${managerRepo} assets/ComfyUI/custom_nodes/ComfyUI-Manager`);
+  execAndLog(`cd assets/ComfyUI/custom_nodes/ComfyUI-Manager && git ${noWarning} checkout ${pkg.config.managerCommit} && cd ../../..`);
+}
 execAndLog(`yarn run make:frontend`);
 execAndLog(`yarn run download:uv all`);
 //execAndLog(`yarn run patch:core:frontend`);
