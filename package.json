@@ -15,8 +15,8 @@
       "optionalBranch": ""
     },
     "comfyUI": {
-      "version": "1.0.1",
-      "optionalBranch": ""
+      "version": "",
+      "optionalBranch": "master"
     },
     "managerCommit": "402e2c384f338d0ed0a7fb19caa93f29a0dc35fd",
     "uvVersion": "0.5.31"
