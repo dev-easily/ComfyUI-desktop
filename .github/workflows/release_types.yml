@@ -1,12 +1,13 @@
 name: Publish to npm
 
 on:
-  pull_request:
-    types: [closed]
-    branches:
-      - main
-    paths:
-      - 'package.json'
+  workflow_dispatch:
+  # pull_request:
+  #   types: [closed]
+  #   branches:
+  #     - main
+  #   paths:
+  #     - 'package.json'
 
 jobs:
   publish:

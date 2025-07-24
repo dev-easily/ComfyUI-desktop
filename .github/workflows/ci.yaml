@@ -1,26 +1,27 @@
 name: Unit Test, Lint, and Format
 
 on:
-  pull_request:
-    branches: [main]
-    paths-ignore:
-      - '.github/ISSUE_TEMPLATE/**'
-      - '.cursor/**'
-      - '.husky/**'
-      - '.vscode/**'
-      - '.claude/**'
-      - 'CLAUDE.md'
-      - '*_example'
-  push:
-    branches: [main]
-    paths-ignore:
-      - '.github/ISSUE_TEMPLATE/**'
-      - '.cursor/**'
-      - '.husky/**'
-      - '.vscode/**'
-      - '.claude/**'
-      - 'CLAUDE.md'
-      - '*_example'
+  workflow_dispatch:
+  # pull_request:
+  #   branches: [main]
+  #   paths-ignore:
+  #     - '.github/ISSUE_TEMPLATE/**'
+  #     - '.cursor/**'
+  #     - '.husky/**'
+  #     - '.vscode/**'
+  #     - '.claude/**'
+  #     - 'CLAUDE.md'
+  #     - '*_example'
+  # push:
+  #   branches: [main]
+  #   paths-ignore:
+  #     - '.github/ISSUE_TEMPLATE/**'
+  #     - '.cursor/**'
+  #     - '.husky/**'
+  #     - '.vscode/**'
+  #     - '.claude/**'
+  #     - 'CLAUDE.md'
+  #     - '*_example'
 
 jobs:
   lint-and-format:

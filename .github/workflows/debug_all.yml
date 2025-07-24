@@ -1,42 +1,43 @@
 name: Build - All Platforms
 
 on:
-  pull_request:
-    branches: [main]
-    paths-ignore:
-      - '.prettierrc'
-      - '.eslintrc.json'
-      - '.prettierignore'
-      - 'README.md'
-      - '.husky/**'
-      - '.vscode/**'
-      - 'scripts/**'
-      - '.gitignore'
-      - 'todesktop.json'
-      - '.github/ISSUE_TEMPLATE/**'
-      - '.cursor/**'
-      - '.claude/**'
-      - 'CLAUDE.md'
-      - '*_example'
-      - 'tests/unit/**'
-  push:
-    branches: [main]
-    paths-ignore:
-      - '.prettierrc'
-      - '.eslintrc.json'
-      - '.prettierignore'
-      - 'README.md'
-      - '.husky/**'
-      - '.vscode/**'
-      - 'scripts/**'
-      - '.gitignore'
-      - 'todesktop.json'
-      - '.github/ISSUE_TEMPLATE/**'
-      - '.cursor/**'
-      - '.claude/**'
-      - 'CLAUDE.md'
-      - '*_example'
-      - 'tests/unit/**'
+  workflow_dispatch:
+  # pull_request:
+  #   branches: [main]
+  #   paths-ignore:
+  #     - '.prettierrc'
+  #     - '.eslintrc.json'
+  #     - '.prettierignore'
+  #     - 'README.md'
+  #     - '.husky/**'
+  #     - '.vscode/**'
+  #     - 'scripts/**'
+  #     - '.gitignore'
+  #     - 'todesktop.json'
+  #     - '.github/ISSUE_TEMPLATE/**'
+  #     - '.cursor/**'
+  #     - '.claude/**'
+  #     - 'CLAUDE.md'
+  #     - '*_example'
+  #     - 'tests/unit/**'
+  # push:
+  #   branches: [main]
+  #   paths-ignore:
+  #     - '.prettierrc'
+  #     - '.eslintrc.json'
+  #     - '.prettierignore'
+  #     - 'README.md'
+  #     - '.husky/**'
+  #     - '.vscode/**'
+  #     - 'scripts/**'
+  #     - '.gitignore'
+  #     - 'todesktop.json'
+  #     - '.github/ISSUE_TEMPLATE/**'
+  #     - '.cursor/**'
+  #     - '.claude/**'
+  #     - 'CLAUDE.md'
+  #     - '*_example'
+  #     - 'tests/unit/**'
 
 jobs:
   build-and-test-e2e-windows:

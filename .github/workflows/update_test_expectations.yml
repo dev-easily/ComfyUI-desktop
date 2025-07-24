@@ -2,8 +2,9 @@
 name: Update Test Expectations
 
 on:
-  pull_request:
-    types: [labeled]
+  workflow_dispatch:
+  # pull_request:
+  #   types: [labeled]
 
 jobs:
   test:
