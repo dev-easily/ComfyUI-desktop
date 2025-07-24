@@ -1,12 +1,21 @@
 import { execSync } from 'node:child_process';
 
 import pkg from './getPackage.js';
+import fs from 'node:fs';
 
 const comfyRepo = 'https://github.com/dev-easily/ComfyUI';
 const managerRepo = 'https://github.com/ltdrdata/ComfyUI-Manager';
-
 /** Suppress warning about detached head */
 const noWarning = '-c advice.detachedHead=false';
+
+/**
+ * Run a command and log the output.
+ * @param {string} command The command to run.
+ */
+function execAndLog(command) {
+  const output = execSync(command, { encoding: 'utf8' });
+  console.log(output);
+}
 
 if (pkg.config.comfyUI.optionalBranch) {
   // Checkout branch.
@@ -22,7 +31,6 @@ execAndLog(
 execAndLog(`yarn run make:frontend`);
 execAndLog(`yarn run download:uv all`);
 //execAndLog(`yarn run patch:core:frontend`);
-import fs from 'node:fs';
 
 const reqPath = 'assets/ComfyUI/requirements.txt';
 if (fs.existsSync(reqPath)) {

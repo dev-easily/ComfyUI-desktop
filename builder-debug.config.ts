@@ -6,6 +6,7 @@ const debugConfig: Configuration = {
     { from: './assets/ComfyUI', to: 'ComfyUI' },
     { from: './assets/uv', to: 'uv' },
     { from: './assets/UI', to: 'UI' },
+    { from: './assets/requirements', to: 'requirements' },
   ],
   beforeBuild: './scripts/preMake.js',
   win: {
